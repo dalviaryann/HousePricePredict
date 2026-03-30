@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="glass" style="padding: 20px; margin-bottom: 16px;">
+    <div class="section-label">compare locations — same budget</div>
+    <form method="POST">
+        <div class="main-grid">
+            <div>
+                <div class="inp-wrap">
+                    <select name="bhk">
+                        {% for i in range(metadata.bhk_min, metadata.bhk_max + 1) %}
+                        <option value="{{ i }}">{{ i }} BHK</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="inp-wrap">
+                    <input type="number" name="area" placeholder="Area (sq. ft.)" required />
+                </div>
+            </div>
+            <div>
+                <div class="inp-wrap">
+                    <input type="number" name="budget" placeholder="Your budget (in Lakhs)" required />
+                </div>
+                <div class="inp-wrap">
+                    <select name="status">
+                        {% for s in metadata.statuses %}
+                        <option value="{{ s }}">{{ s }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="inp-wrap">
+                    <select name="age">
+                        {% for a in metadata.ages %}
+                        <option value="{{ a }}">{{ a }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn-primary">Compare Locations</button>
+    </form>
+</div>
+
+{% if results %}
+<div class="section-label" style="margin-top: 24px;">top locations within your budget</div>
+<div class="results-grid">
+    {% for i, r in enumerate(results) %}
+    <div class="glass result-card">
+        <div class="result-region">{{ r.region }}</div>
+        <div class="result-price">{{ r.formatted }}</div>
+        <div class="result-detail">{{ r.area }} sq.ft · {{ r.bhk }} BHK</div>
+        {% if i == 0 %}
+        <span class="best-badge">best value</span>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

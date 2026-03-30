@@ -1,0 +1,44 @@
+<!--same background for all execpt for login because not needed-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbai House Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="blob3"></div>
+
+    {% if show_nav %}
+    <nav class="navbar">
+        <div class="nav-logo">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M2 17L10 3l8 14H2z" stroke="#818cf8" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+            Mumbai Price Predictor
+        </div>
+        <div class="nav-links">
+            <a href="/dashboard" class="{{ 'active' if request.path == '/dashboard' }}">Predict</a>
+            <a href="/compare" class="{{ 'active' if request.path == '/compare' }}">Compare</a>
+            <a href="/optimizer" class="{{ 'active' if request.path == '/optimizer' }}">Optimizer</a>
+            <a href="/history" class="{{ 'active' if request.path == '/history' }}">History</a>
+            <a href="/about" class="{{ 'active' if request.path == '/about' }}">About</a>
+        </div>
+        <div class="nav-user">
+            <span>Hey, {{ user_name }}</span>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+    {% endif %}
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

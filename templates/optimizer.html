@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="glass" style="padding: 20px; margin-bottom: 16px;">
+    <div class="section-label">budget optimizer — get maximum area</div>
+    <form method="POST">
+        <div class="main-grid">
+            <div class="inp-wrap">
+                <input type="number" name="budget" placeholder="Your budget (in Lakhs)" required />
+            </div>
+            <div class="inp-wrap">
+                <select name="bhk">
+                    {% for i in range(metadata.bhk_min, metadata.bhk_max + 1) %}
+                    <option value="{{ i }}">{{ i }} BHK</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn-primary">Find Best Locations</button>
+    </form>
+</div>
+
+{% if results %}
+<div class="section-label" style="margin-top: 24px;">best value for your budget</div>
+<div class="results-grid">
+    {% for i, r in enumerate(results) %}
+    <div class="glass result-card">
+        <div class="result-region">{{ r.region }}</div>
+        <div class="result-price">{{ r.formatted }}</div>
+        <div class="result-detail">~{{ r.area_you_get }} sq.ft you get</div>
+        {% if i == 0 %}
+        <span class="best-badge">maximum area</span>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

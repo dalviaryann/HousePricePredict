@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="stat-row">
+    <div class="glass stat-card">
+        <div class="stat-label">total listings</div>
+        <div class="stat-val">76,038</div>
+    </div>
+    <div class="glass stat-card">
+        <div class="stat-label">regions covered</div>
+        <div class="stat-val">228</div>
+    </div>
+    <div class="glass stat-card">
+        <div class="stat-label">model accuracy</div>
+        <div class="stat-val">82.7%</div>
+    </div>
+</div>
+
+<div class="main-grid">
+    <div class="glass" style="padding: 20px;">
+        <div class="section-label">property details</div>
+        <form method="POST">
+            <div class="inp-wrap">
+                <select name="bhk">
+                    {% for i in range(metadata.bhk_min, metadata.bhk_max + 1) %}
+                    <option value="{{ i }}">{{ i }} BHK</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="inp-wrap">
+                <input type="number" name="area" placeholder="Area (sq. ft.)" 
+                    min="{{ metadata.area_min }}" max="{{ metadata.area_max }}" required />
+            </div>
+            <div class="inp-wrap">
+                <select name="type">
+                    {% for t in metadata.types %}
+                    <option value="{{ t }}">{{ t }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="inp-wrap">
+                <select name="region">
+                    {% for r in metadata.regions %}
+                    <option value="{{ r }}">{{ r }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="inp-wrap">
+                <select name="status">
+                    {% for s in metadata.statuses %}
+                    <option value="{{ s }}">{{ s }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="inp-wrap">
+                <select name="age">
+                    {% for a in metadata.ages %}
+                    <option value="{{ a }}">{{ a }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn-primary">Predict Price</button>
+        </form>
+    </div>
+
+    <div>
+        {% if prediction %}
+        <div class="glass price-card">
+            <div class="section-label">estimated price</div>
+            <div class="price-val">{{ prediction }}</div>
+            <div class="price-sub">powered by random forest</div>
+        </div>
+        {% else %}
+        <div class="glass price-card">
+            <div class="section-label">estimated price</div>
+            <div class="price-val" style="color: rgba(255,255,255,0.1);">₹ —</div>
+            <div class="price-sub">fill in details and hit predict</div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

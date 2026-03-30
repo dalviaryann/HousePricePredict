@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="glass" style="padding: 28px; margin-bottom: 16px;">
+    <div class="section-label">about this project</div>
+    <h2 style="font-size: 22px; font-weight: 500; margin-bottom: 8px;">Mumbai House Price Predictor</h2>
+    <p style="color: rgba(255,255,255,0.4); font-size: 14px; line-height: 1.8;">
+        A machine learning web application that predicts house prices across Mumbai 
+        using a Random Forest model trained on 76,000+ real listings.
+    </p>
+</div>
+
+<div class="main-grid" style="margin-bottom: 16px;">
+    <div class="glass" style="padding: 20px;">
+        <div class="section-label">the model</div>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.8;">
+            We use a <span style="color: #818cf8;">Random Forest Regressor</span> — 
+            an ensemble of 150 decision trees that vote together to predict price.
+            It captures complex non-linear relationships between location, size, 
+            and price that simpler models like Linear Regression miss.
+        </p>
+    </div>
+    <div class="glass" style="padding: 20px;">
+        <div class="section-label">the dataset</div>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.8;">
+            Trained on <span style="color: #818cf8;">76,038 Mumbai listings</span> 
+            covering 228 regions. Prices were normalised to Lakhs (₹), 
+            outliers removed, and categorical features encoded using 
+            One Hot Encoding before training.
+        </p>
+    </div>
+</div>
+
+<div class="main-grid" style="margin-bottom: 16px;">
+    <div class="glass" style="padding: 20px;">
+        <div class="section-label">model performance</div>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 13px; color: rgba(255,255,255,0.4);">R² Score</span>
+                <span style="font-size: 16px; font-weight: 500; color: #818cf8;">0.8279</span>
+            </div>
+            <div style="height: 0.5px; background: rgba(255,255,255,0.08);"></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 13px; color: rgba(255,255,255,0.4);">Mean Absolute Error</span>
+                <span style="font-size: 16px; font-weight: 500; color: #818cf8;">₹33.43 L</span>
+            </div>
+            <div style="height: 0.5px; background: rgba(255,255,255,0.08);"></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 13px; color: rgba(255,255,255,0.4);">RMSE</span>
+                <span style="font-size: 16px; font-weight: 500; color: #818cf8;">₹59.70 L</span>
+            </div>
+        </div>
+    </div>
+    <div class="glass" style="padding: 20px;">
+        <div class="section-label">tech stack</div>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 13px; color: rgba(255,255,255,0.4);">Backend</span>
+                <span style="font-size: 13px; color: #818cf8;">Flask (Python)</span>
+            </div>
+            <div style="height: 0.5px; background: rgba(255,255,255,0.08);"></div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 13px; color: rgba(255,255,255,0.4);">ML Model</span>
+                <span style="font-size: 13px; color: #818cf8;">Random Forest</span>
+            </div>
+            <div style="height: 0.5px; background: rgba(255,255,255,0.08);"></div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 13px; color: rgba(255,255,255,0.4);">Database</span>
+                <span style="font-size: 13px; color: #818cf8;">SQLite</span>
+            </div>
+            <div style="height: 0.5px; background: rgba(255,255,255,0.08);"></div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 13px; color: rgba(255,255,255,0.4);">Frontend</span>
+                <span style="font-size: 13px; color: #818cf8;">HTML + CSS</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="glass" style="padding: 20px;">
+    <div class="section-label">features</div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+        <div style="background: rgba(99,102,241,0.08); border: 0.5px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 14px;">
+            <div style="font-size: 13px; font-weight: 500; color: #818cf8; margin-bottom: 4px;">Price Prediction</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.6;">Predict house prices across 228 Mumbai regions instantly</div>
+        </div>
+        <div style="background: rgba(99,102,241,0.08); border: 0.5px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 14px;">
+            <div style="font-size: 13px; font-weight: 500; color: #818cf8; margin-bottom: 4px;">Location Compare</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.6;">See what your budget gets you across different locations</div>
+        </div>
+        <div style="background: rgba(99,102,241,0.08); border: 0.5px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 14px;">
+            <div style="font-size: 13px; font-weight: 500; color: #818cf8; margin-bottom: 4px;">Budget Optimizer</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.6;">Find the best value locations that maximise your area</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
