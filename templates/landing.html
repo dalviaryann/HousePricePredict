@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbai House Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav class="landing-nav">
+        <div class="landing-nav-logo">Mumbai Predictor</div>
+        <div class="landing-nav-btns">
+            <a href="/login" class="btn-secondary">Log in</a>
+            <a href="/signup" class="btn-dark">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge fade-up">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <circle cx="6" cy="6" r="5" stroke="#374151" stroke-width="1.2"/>
+                <path d="M6 3v3l2 1" stroke="#374151" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            Trained on 76,000+ Mumbai listings
+        </div>
+        <h1 class="hero-title fade-up-delay">Find Your Perfect Home in Mumbai</h1>
+        <p class="hero-sub fade-up-delay">Predict house prices instantly using AI. Compare locations, optimize your budget and make smarter property decisions.</p>
+        <div class="hero-btns fade-up-delay-2">
+            <a href="/signup" class="hero-btn-primary">Get Started Free</a>
+            <a href="/login" class="hero-btn-secondary">Log in</a>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stats-bar-item">
+            <div class="stats-bar-val">76,038</div>
+            <div class="stats-bar-label">Mumbai listings</div>
+        </div>
+        <div class="stats-bar-item">
+            <div class="stats-bar-val">228</div>
+            <div class="stats-bar-label">Regions covered</div>
+        </div>
+        <div class="stats-bar-item">
+            <div class="stats-bar-val">82.7%</div>
+            <div class="stats-bar-label">Model accuracy</div>
+        </div>
+        
+    </div>
+
+    <section class="features-section">
+        <h2 class="features-title">Everything you need</h2>
+        <p class="features-sub">Three powerful tools to help you make smarter property decisions in Mumbai</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2L2 8v10h6v-5h4v5h6V8L10 2z" stroke="#374151" stroke-width="1.4" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="feature-title">Price Prediction</div>
+                <div class="feature-desc">Get instant AI-powered price estimates for any property across 228 Mumbai regions using Random Forest.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="7" cy="10" r="5" stroke="#374151" stroke-width="1.4"/>
+                        <circle cx="13" cy="10" r="5" stroke="#374151" stroke-width="1.4"/>
+                    </svg>
+                </div>
+                <div class="feature-title">Compare Locations</div>
+                <div class="feature-desc">See what your budget gets you across different Mumbai locations. Find the best deal for your money.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M3 17l4-8 4 4 3-6 3 10" stroke="#374151" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="feature-title">Budget Optimizer</div>
+                <div class="feature-desc">Enter your budget and discover which Mumbai areas give you maximum area and best value for money.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        Mumbai House Price Predictor · Built with Random Forest · 
+        <a href="/signup" style="color:#f9fafb;">Get Started</a>
+    </footer>
+
+</body>
+</html>

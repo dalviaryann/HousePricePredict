@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="glass" style="padding: 20px;">
+<div class="card" style="padding: 20px;">
     <div class="section-label">your search history</div>
 
     {% if searches %}
@@ -27,7 +27,7 @@
                 <td>{{ s[2] }}</td>
                 <td>{{ s[4] }}</td>
                 <td>{{ s[5] }}</td>
-                <td style="color: #818cf8;">
+                <td style="color: #111827; font-weight: 500;">
                     {% if s[6] >= 100 %}
                         ₹{{ "%.2f"|format(s[6]/100) }} Cr
                     {% else %}
@@ -40,7 +40,7 @@
         </tbody>
     </table>
     {% else %}
-    <div style="text-align: center; padding: 3rem; color: rgba(255,255,255,0.2);">
+    <div style="text-align: center; padding: 3rem; color: #9ca3af;">
         No searches yet — go predict some prices!
     </div>
     {% endif %}
